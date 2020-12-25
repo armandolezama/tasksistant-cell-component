@@ -9,7 +9,7 @@ export class TasksistantCellComponent extends LitElement {
    */
   constructor() {
     super();
-    this.nodeContent = () => {};
+    this._nodeContent = () => {};
     this.filled = false;
     this.sidePrototype = () => {
       status: "", (cellReference = () => {});
@@ -26,7 +26,7 @@ export class TasksistantCellComponent extends LitElement {
    */
   static get properties() {
     return {
-      nodeContent: { type: Object },
+      _nodeContent: { type: Object },
       filled: { type: Boolean },
       sidePrototype: { type: Object },
       left: { type: Object },
@@ -44,7 +44,11 @@ export class TasksistantCellComponent extends LitElement {
   setNodeInnerHTML(innerHTML) {
     if (typeof innerHTML === "string") {
       this._nodeInnerHTML = innerHTML;
-    }
+    };
+  };
+
+  setNodeContent(nodeNewContent) {
+    this._nodeContent = {...nodeNewContent};
   }
 
   render() {
