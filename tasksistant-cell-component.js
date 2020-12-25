@@ -53,9 +53,11 @@ export class TasksistantCellComponent extends LitElement {
 
   render() {
     return html`
-      <div class="node-inner-html">${this._nodeInnerHTML}</div>
-      <div>
-        <slot name="node-slot"> </slot>
+      <div id="main-container">
+        <div id="node-inner-html">${this._nodeInnerHTML}</div>
+        <div id="node-slot">
+          <slot name="node-slot"> </slot>
+        </div>
       </div>
     `;
   }
