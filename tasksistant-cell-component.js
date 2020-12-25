@@ -33,7 +33,7 @@ export class TasksistantCellComponent extends LitElement {
       right: { type: Object },
       top: { type: Object },
       bottom: { type: Object },
-      _nodeInnerHTML: {},
+      _nodeInnerHTML: {type: String},
     };
   }
 
@@ -47,7 +47,7 @@ export class TasksistantCellComponent extends LitElement {
     };
   };
 
-  setNodeContent(nodeNewContent) {
+  setNodeContent(nodeNewContent = {}) {
     this._nodeContent = {...nodeNewContent};
   }
 

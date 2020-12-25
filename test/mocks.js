@@ -3,6 +3,11 @@ const nodeContentForTest = {
     content: 'content string'
 };
 
+const innerHTMLMock = `
+    <h2>hello world</h2>
+`;
+
 export default {
-    nodeContentForTest
+    nodeContentForTest,
+    innerHTMLMock
 };
