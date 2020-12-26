@@ -9,16 +9,17 @@ export class TasksistantCellComponent extends LitElement {
    */
   constructor() {
     super();
-    this._nodeContent = () => {};
+    this._nodeContent = {};
     this.filled = false;
-    this.sidePrototype = () => {
-      status: "", (cellReference = () => {});
+    this.sidePrototype = {
+      status: "", 
+      cellReference : {}
     };
     this.left = { ...this.sidePrototype };
     this.right = { ...this.sidePrototype };
     this.top = { ...this.sidePrototype };
     this.bottom = { ...this.sidePrototype };
-    this._nodeInnerHTML = "";
+    this._nodeInnerText = '';
   }
 
   /**
@@ -33,7 +34,7 @@ export class TasksistantCellComponent extends LitElement {
       right: { type: Object },
       top: { type: Object },
       bottom: { type: Object },
-      _nodeInnerHTML: {type: String},
+      _nodeInnerText: {type: String},
     };
   }
 
@@ -41,9 +42,9 @@ export class TasksistantCellComponent extends LitElement {
     return styles;
   }
 
-  setNodeInnerHTML(innerHTML) {
-    if (typeof innerHTML === "string") {
-      this._nodeInnerHTML = innerHTML;
+  setNodeInnerText(innerText) {
+    if (typeof innerText === "string") {
+      this._nodeInnerText = innerText;
     };
   };
 
@@ -54,7 +55,7 @@ export class TasksistantCellComponent extends LitElement {
   render() {
     return html`
       <div id="main-container">
-        <div id="node-inner-html">${this._nodeInnerHTML}</div>
+        <div id="node-inner-text">${this._nodeInnerText}</div>
         <div id="node-slot">
           <slot name="node-slot"> </slot>
         </div>
