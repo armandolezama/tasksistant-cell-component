@@ -4,8 +4,6 @@ export default css`
   :host {
     background: var(--tasksistant-cell-component-host-background, #ffffff);
     display: var(--tasksistant-cell-component-host-display, inline-flex);
-    margin: var(--tasksistant-cell-component-host-margin, 0);
-    padding: var(--tasksistant-cell-component-host-padding, 0);;
   }
 
   #main-container {

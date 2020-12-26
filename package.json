@@ -20,7 +20,6 @@
   "devDependencies": {
     "@open-wc/testing": "^2.5.32",
     "@open-wc/testing-karma": "^4.0.9",
-    "@rollup/plugin-node-resolve": "^11.0.1",
     "deepmerge": "^4.2.2",
     "es-dev-server": "^2.0.2",
     "karma": "^5.2.3"
