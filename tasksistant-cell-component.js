@@ -9,8 +9,8 @@ export class TasksistantCellComponent extends LitElement {
    */
   constructor() {
     super();
-    this._nodeContent = {};
-    this.filled = false;
+    this.nodeContent = {};
+    this.isNodeContentFilled = false;
     this.sidePrototype = {
       status: "", 
       cellReference : {}
@@ -19,48 +19,66 @@ export class TasksistantCellComponent extends LitElement {
     this.right = { ...this.sidePrototype };
     this.top = { ...this.sidePrototype };
     this.bottom = { ...this.sidePrototype };
-    this._nodeInnerText = '';
-  }
+    this.nodeInnerText = '';
+  };
 
   /**
    * Object describing property-related metadata used by Polymer features
    */
   static get properties() {
     return {
-      _nodeContent: { type: Object },
-      filled: { type: Boolean },
+      nodeContent: { type: Object },
+      isNodeContentFilled: { type: Boolean },
       sidePrototype: { type: Object },
       left: { type: Object },
       right: { type: Object },
       top: { type: Object },
       bottom: { type: Object },
-      _nodeInnerText: {type: String},
+      nodeInnerText: {type: String},
     };
-  }
+  };
 
   static get styles() {
     return styles;
-  }
+  };
 
   setNodeInnerText(innerText) {
     if (typeof innerText === "string") {
-      this._nodeInnerText = innerText;
+      this.nodeInnerText = innerText;
     };
   };
 
   setNodeContent(nodeNewContent = {}) {
-    this._nodeContent = {...nodeNewContent};
-  }
+    this.nodeContent = {...nodeNewContent};
+    this.isNodeContentFilled = true;
+    this.dispatchEvent(new CustomEvent('tasksistant-cell-component-node-content-added', {
+      detail: {
+        nodeContent: this.nodeContent,
+        isNodeFilled: this.isNodeContentFilled
+      }
+    }));
+  };
+
+  cleanNodeContent(){
+    this.nodeContent = {};
+    this.isNodeContentFilled = false;
+    this.dispatchEvent(new CustomEvent('tasksistant-cell-component-node-content-deleted', {
+      detail: {
+        nodeContent: this.nodeContent,
+        isNodeFilled: this.isNodeContentFilled
+      }
+    }));
+  };
 
   render() {
     return html`
       <div id="main-container">
-        <div id="node-inner-text">${this._nodeInnerText}</div>
+        <div id="node-inner-text">${this.nodeInnerText}</div>
         <div id="node-slot">
           <slot name="node-slot"> </slot>
         </div>
       </div>
     `;
-  }
+  };
 }
 customElements.define("tasksistant-cell-component", TasksistantCellComponent);
