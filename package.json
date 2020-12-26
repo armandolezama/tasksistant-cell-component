@@ -1,8 +1,9 @@
 {
-  "name": "tasksistant-cell-component",
+  "name": "@tasksistant-components/tasksistant-cell-component",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Tasksistant component for proof of concept",
+  "main": "tasksistant-cell-component.js",
+  "module": "tasksistant-cell-component.js",
   "scripts": {
     "serve": "es-dev-server --app-index demo/index.html --node-resolve --watch --open",
     "test": "karma start --coverage",
