@@ -55,7 +55,9 @@ export class TasksistantCellComponent extends LitElement {
       detail: {
         nodeContent: this.nodeContent,
         isNodeFilled: this.isNodeContentFilled
-      }
+      },
+      composed: true,
+      bubbles: true
     }));
   };
 
@@ -66,7 +68,9 @@ export class TasksistantCellComponent extends LitElement {
       detail: {
         nodeContent: this.nodeContent,
         isNodeFilled: this.isNodeContentFilled
-      }
+      },
+      composed: true,
+      bubbles: true
     }));
   };
 

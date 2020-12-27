@@ -11,6 +11,8 @@ export default css`
     display: var(--tasksistant-cell-component-main-container-display, inline-flex);
     flex-direction:  var(--tasksistant-cell-component-main-container-flex-direction, column);
     flex-wrap: var(--tasksistant-cell-component-main-containter-flex-wrap, wrap-reverse);
+    justify-content: var(--tasksistant-cell-component-main-containter-justify-content, center);
+    align-items: var(--tasksistant-cell-component-main-containter-align-items, center);
     border: var(--tasksistant-cell-component-main-container-border, solid);
     width: var(--tasksistant-cell-component-main-container-width, 300px);
     height: var(--tasksistant-cell-component-main-container-height, 400px);
