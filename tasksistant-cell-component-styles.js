@@ -8,8 +8,9 @@ export default css`
 
   #main-container {
     background: var(--tasksistant-cell-component-main-container-background, #ffffff);
-    display: var(--tasksistant-cell-component-main-containe-display, inline-flex);
-    flex-direction: column;
+    display: var(--tasksistant-cell-component-main-container-display, inline-flex);
+    flex-direction:  var(--tasksistant-cell-component-main-container-flex-direction, column);
+    flex-wrap: var(--tasksistant-cell-component-main-containter-flex-wrap, wrap-reverse);
     border: var(--tasksistant-cell-component-main-container-border, solid);
     width: var(--tasksistant-cell-component-main-container-width, 300px);
     height: var(--tasksistant-cell-component-main-container-height, 400px);
