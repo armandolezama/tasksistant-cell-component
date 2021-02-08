@@ -12,13 +12,15 @@ export class TasksistantCellComponent extends LitElement {
     this.nodeContent = {};
     this.isNodeContentFilled = false;
     this.sidePrototype = {
-      status: "", 
-      cellReference : {}
+      reference: {},
+      status: "empty"
+    }
+    this.sides = {
+      left: {...this.sidePrototype},
+      right: {...this.sidePrototype},
+      top: {...this.sidePrototype},
+      bottom: {...this.sidePrototype}
     };
-    this.left = { ...this.sidePrototype };
-    this.right = { ...this.sidePrototype };
-    this.top = { ...this.sidePrototype };
-    this.bottom = { ...this.sidePrototype };
     this.nodeInnerText = '';
   };
 
@@ -56,6 +58,14 @@ export class TasksistantCellComponent extends LitElement {
         nodeContent: this.nodeContent,
         isNodeFilled: this.isNodeContentFilled
       }
+    }));
+  };
+
+  setNewReference(direction, reference){
+    this.sides[`${direction}`].reference = reference;
+    this.sides[`${direction}`].status = "filled";
+    this.dispatchEvent(new CustomEvent('tasksistant-cell-component-new-reference-added', {
+      detail: { side: direction }
     }));
   };
 

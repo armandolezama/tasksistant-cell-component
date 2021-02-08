@@ -9,7 +9,7 @@ export default css`
   #main-container {
     background: var(--tasksistant-cell-component-main-container-background, #ffffff);
     display: var(--tasksistant-cell-component-main-container-display, inline-flex);
-    flex-direction:  var(--tasksistant-cell-component-main-container-flex-direction, column);
+    flex-direction: var(--tasksistant-cell-component-main-container-flex-direction, column);
     flex-wrap: var(--tasksistant-cell-component-main-containter-flex-wrap, wrap-reverse);
     justify-content: var(--tasksistant-cell-component-main-containter-justify-content, center);
     align-items: var(--tasksistant-cell-component-main-containter-align-items, center);

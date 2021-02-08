@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-expressions */
 import { fixture, assert } from "@open-wc/testing";
-
 import '../tasksistant-cell-component';
 import mocks from './mocks';
 
