@@ -11,6 +11,7 @@ export class TasksistantCellComponent extends LitElement {
     super();
     this.nodeContent = {};
     this.isNodeContentFilled = false;
+    this.cellIsDead = false;
     this.sidePrototype = {
       reference: {},
       status: "empty"
@@ -22,6 +23,7 @@ export class TasksistantCellComponent extends LitElement {
       bottom: {...this.sidePrototype}
     };
     this.nodeInnerText = '';
+    this.vitalSign = 'alive';
   };
 
   /**
@@ -31,18 +33,27 @@ export class TasksistantCellComponent extends LitElement {
     return {
       nodeContent: { type: Object },
       isNodeContentFilled: { type: Boolean },
+      cellIsDead: {type: Boolean},
       sidePrototype: { type: Object },
-      left: { type: Object },
-      right: { type: Object },
-      top: { type: Object },
-      bottom: { type: Object },
-      nodeInnerText: {type: String},
+      sides: { type: Object },
+      nodeInnerText: {type: String}
     };
   };
 
   static get styles() {
     return styles;
   };
+
+  set cellIsDead(value) {
+    let oldValue = this._cellIsDead;
+    if(value){
+      this.lookDead();
+    } else {
+      this.lookAlive();
+    };
+    this._cellIsDead = value;
+    this.requestUpdate('cellIsDead', oldValue);
+  }
 
   setNodeInnerText(innerText) {
     if (typeof innerText === "string") {
@@ -60,6 +71,8 @@ export class TasksistantCellComponent extends LitElement {
       }
     }));
   };
+
+  getNodeContent() {return this.nodeContent};
 
   setNewReference(direction, reference){
     this.sides[`${direction}`].reference = reference;
@@ -80,9 +93,19 @@ export class TasksistantCellComponent extends LitElement {
     }));
   };
 
+  lookDead(){
+    this.vitalSign = 'dead';
+    this.requestUpdate();
+  };
+
+  lookAlive(){
+    this.vitalSign = 'alive';
+    this.requestUpdate();
+  };
+
   render() {
     return html`
-      <div id="main-container">
+      <div id="main-container" class="cell-${this.vitalSign}">
         <div id="node-inner-text">${this.nodeInnerText}</div>
         <div id="node-slot">
           <slot name="node-slot"> </slot>
